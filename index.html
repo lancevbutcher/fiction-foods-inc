@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Form</title>
+
+    <!-- Load LaunchDarkly SDK -->
+    <script src="https://unpkg.com/launchdarkly-js-client-sdk"></script>
+
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- script after LD -->
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1>Simple Survey</h1>
+    
+    <div id="restaurant-logo-container">
+        <img id="restaurant-logo" src="" alt="Restaurant Logo">
+    </div>
+
+    <form id="survey-form">
+        <!-- Restaurant -->
+        <label for="restaurant">Which Restaurant did you visit?</label>
+        <select id="restaurant" name="restaurant">
+            <option value="" selected disabled>-- Select a Restaurant --</option>
+            <option value="kahuna">Big Kahuna Burger</option>
+            <option value="pollos">Los Pollos Hermanos</option>
+            <option value="pizza">Surfer Boy Pizza</option>
+        </select>
+
+        <!-- Name -->
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <!-- Receipt Number -->
+        <label for="receipt">Receipt Number (6-digit alphanumeric):</label>
+        <input type="text" id="receipt" name="receipt" pattern="[A-Za-z0-9]{6}" maxlength="6" required>
+        <small>Example: A1B2C3</small>
+
+        <!-- Email -->
+        <label for="email">Your Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <!-- Rating Scale -->
+        <label for="rating">Rate Your Experience (1-5):</label>
+        <div id="rating">
+            <span>Poor</span>
+
+            <input type="radio" id="rating-1" name="rating" value="1">
+            <label for="rating-1">1</label>
+
+            <input type="radio" id="rating-2" name="rating" value="2">
+            <label for="rating-2">2</label>
+
+            <input type="radio" id="rating-3" name="rating" value="3">
+            <label for="rating-3">3</label>
+
+            <input type="radio" id="rating-4" name="rating" value="4">
+            <label for="rating-4">4</label>
+
+            <input type="radio" id="rating-5" name="rating" value="5">
+            <label for="rating-5">5</label>
+
+            <span>Outstanding</span>
+        </div>
+
+        <!-- Feedback -->
+        <label for="feedback">Please share any additional feedback:</label>
+        <textarea id="feedback" name="feedback" rows="4"></textarea>
+        <p id="chatResponse"></p>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <!-- Survey Popup -->
+    <div id="survey-popup" class="popup" style="display: none;">
+        <div class="popup-content">
+            <h2>Thank You for Your Feedback!</h2>
+            <p>Your discount code: <strong>SAVE10</strong></p>
+            
+            <!-- Dissat Follow-up if 1 -->
+            <div id="callback-section" style="display: none;">
+                <p>We value your feedback! Would you like us to call you to discuss your experience?</p>
+                <button id="request-callback">Yes, Please Call</button>
+                <button id="no-thank-you">No</button>
+            </div>
+
+            <!-- Survey Exp Q -->
+            <p>How was filling out the survey?</p>
+            <button class="survey-feedback" data-response="boring">Boring</button>
+            <button class="survey-feedback" data-response="easy">Easy and/or Fun</button>
+            <button class="survey-feedback" data-response="confusing">Confusing</button>
+            <button id="close-popup">Close</button>
+        </div>
+    </div>
+
+</body>
+</html>

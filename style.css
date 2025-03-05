@@ -1,0 +1,181 @@
+/* vertical */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: auto;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Space out labels n inputs */
+label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Rating buttons spaced */
+#rating {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* rating option */
+#rating label {
+    cursor: pointer;
+    padding: 12px 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s, border-color 0.3s;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+}
+
+/* Hide radio buttons */
+#rating input[type="radio"] {
+    display: none;
+}
+
+/* Highlight label */
+#rating input[type="radio"]:checked + label {
+    background-color: #4caf50;
+    color: white;
+    border-color: #4caf50;
+}
+
+/* spacing below feedback */
+#feedback {
+    margin-bottom: 20px; 
+}
+
+/* Center logo */
+#restaurant-logo-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    margin-bottom: 20px;
+}
+
+#restaurant-logo {
+    max-width: 200px; 
+    height: auto;
+    border-radius: 10px; 
+}
+
+/* body styling */
+body {
+    font-family: Arial, sans-serif;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Style submit */
+button {
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* 🌊 Big Kahuna Burger Theme */
+.kahuna-theme {
+    background-color: #E99E24;
+    color: #0073B1;
+}
+
+.kahuna-theme form {
+    border: 3px solid #0073B1;
+    background-color: #FFF3E0;
+}
+
+.kahuna-theme button {
+    background-color: #0073B1;
+    color: white;
+}
+
+.kahuna-theme button:hover {
+    background-color: #005A8E;
+}
+
+/* Los Pollos Hermanos Theme */
+.pollos-theme {
+    background-color: #FFD700; 
+    color: #B71C1C; 
+}
+
+.pollos-theme form {
+    border: 3px solid #1565C0;
+    background-color: #FFFDE7;
+}
+
+.pollos-theme button {
+    background-color: #B71C1C;
+    color: white;
+}
+
+.pollos-theme button:hover {
+    background-color: #8E0000;
+}
+
+/* Surfer Boy Pizza Theme */
+.pizza-theme {
+    background-color: #F8D347; 
+    color: #D32F2F; 
+}
+
+.pizza-theme form {
+    border: 3px solid #D32F2F;
+    background-color: #FFF9C4;
+}
+
+.pizza-theme button {
+    background-color: #D32F2F;
+    color: white;
+}
+
+.pizza-theme button:hover {
+    background-color: #B71C1C;
+}
+
+/* Popup Background */
+.popup {
+    display: none; /* by default */
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Popup Content */
+.popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 400px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.survey-feedback {
+    margin: 5px; /* space between */
+    padding: 10px 15px; 
+}
+
+#close-popup {
+    margin-top: 15px !important; /* space above the close button */
+    display: block !important; /* Makes it a block element */
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+/* Hide by default */
+#restaurant-logo {
+    display: none;
+}
+
