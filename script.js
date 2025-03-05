@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ⚠️⚠️⚠️ Replace YOUR LaunchDarkly SDK key in line below where it says 'YOUR_LD_SDK_KEY_HERE'
-    const ldClient = LDClient.initialize('67c50a573eefa909b57c0360', getLDContext());
+    const ldClient = LDClient.initialize('YOUR_LD_SDK_KEY_HERE', getLDContext());
 
     ldClient.on('ready', () => {
         console.log('LaunchDarkly connected!');
