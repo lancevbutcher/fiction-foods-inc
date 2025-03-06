@@ -44,12 +44,12 @@ document.addEventListener("DOMContentLoaded", () => {
         return "Other";
     }
 
-    // ⚠️⚠️⚠️  For Metrics-testing, you may wish to change the 'key:' based on what your evaluating
+    // ⚠️ For Metrics-testing, you may wish to change the 'key:' based on what your evaluating
     // I also made anonymous: false for sake of testing appearing in 'contexts'
     function getLDContext() {
         return {
             kind: "user",
-            key: "user-31",
+            key: "user-31", // 👈 this is what you may want to alter for Metrics-testing
             anonymous: false,
             restaurant: restaurantSelect.value || "unknown",
             rating: document.querySelector('input[name="rating"]:checked')?.value || "none",
@@ -58,13 +58,13 @@ document.addEventListener("DOMContentLoaded", () => {
         };
     }
 
-    // ⚠️⚠️⚠️ Replace YOUR LaunchDarkly SDK key in line below where it says 'YOUR_LD_SDK_KEY_HERE'
-    const ldClient = LDClient.initialize('YOUR_LD_SDK_KEY_HERE', getLDContext());
+    // ⚠️⚠️⚠️ Replace YOUR LaunchDarkly SDK key in line below 👇 where it says 'YOUR_LD_CLIENT-SIDE_ID_HERE'
+    const ldClient = LDClient.initialize('YOUR_LD_CLIENT-SIDE_ID_HERE', getLDContext());
 
     ldClient.on('ready', () => {
         console.log('LaunchDarkly connected!');
-        brandingEnabled = ldClient.variation('branding-flag', true);
-        logoEnabled = ldClient.variation('logo-v2', false);
+        brandingEnabled = ldClient.variation('branding-flag', true); // 👈 here is a flag being called that you will have created.
+        logoEnabled = ldClient.variation('logo-v2', false); // 👈 here is a flag being called that you will have created.
 
         toggleBranding(brandingEnabled);
         toggleLogo(logoEnabled);
